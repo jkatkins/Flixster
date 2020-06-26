@@ -12,8 +12,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.Target;
 import com.example.flixster.Models.Movie;
 
 import org.parceler.Parcels;
@@ -46,13 +48,25 @@ public class MovieDetailsActivity extends AppCompatActivity  {
         tvOverview.setText(movie.getOverview());
         float voteAverage = movie.getVoteAverage().floatValue();
         rbVoteAverage.setRating(voteAverage = voteAverage > 0 ? voteAverage / 2.0f : voteAverage);
-        Glide.with(this).load(movie.getBackdropPath()).fitCenter().transform(new RoundedCornersTransformation(30,10)).into(ivBackground);
+        Glide
+                .with(this)
+                .load(movie.getBackdropPath())
+                .fitCenter()
+                .transform(new RoundedCornersTransformation(30,10))
+                .placeholder(R.drawable.icon)
+                .error(R.drawable.icon)
+                .into(ivBackground);
     }
 
     public void onClick(View view) {
-        Intent intent = new Intent(this, MovieTrailerActivity.class);
-        intent.putExtra(Movie.class.getSimpleName(), Parcels.wrap(movie));
-        this.startActivity(intent);
+        String videoUrl = movie.getVideoUrl();
+        if (videoUrl.equals("")) {
+            Toast.makeText(this, "No available trailers to display", Toast.LENGTH_SHORT).show();
+        } else {
+            Intent intent = new Intent(this, MovieTrailerActivity.class);
+            intent.putExtra(Movie.class.getSimpleName(), Parcels.wrap(movie));
+            this.startActivity(intent);
+        }
     }
 
 

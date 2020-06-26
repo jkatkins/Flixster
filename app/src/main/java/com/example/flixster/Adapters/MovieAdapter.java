@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.Target;
 import com.example.flixster.Models.Movie;
 import com.example.flixster.MovieDetailsActivity;
 import com.example.flixster.R;
@@ -79,10 +80,25 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
             view.setBackgroundColor(movie.getColor());
             if (context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
                 imageUrl = movie.getBackdropPath();
+                Glide
+                        .with(context)
+                        .load(imageUrl)
+                        .fitCenter()
+                        .transform(new RoundedCornersTransformation(30,10))
+                        .placeholder(R.drawable.icon)
+                        .error(R.drawable.icon)
+                        .into(ivPoster);
             } else {
                 imageUrl = movie.getPosterPath();
+                Glide
+                        .with(context)
+                        .load(imageUrl)
+                        .transform(new RoundedCornersTransformation(30,10))
+                        .placeholder(R.drawable.icon)
+                        .error(R.drawable.icon)
+                        .override(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
+                        .into(ivPoster);
             }
-            Glide.with(context).load(imageUrl).fitCenter().transform(new RoundedCornersTransformation(30,10)).into(ivPoster);
         }
 
         @Override
