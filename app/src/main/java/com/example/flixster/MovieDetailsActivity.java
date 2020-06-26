@@ -1,6 +1,8 @@
 package com.example.flixster;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
@@ -27,7 +29,7 @@ public class MovieDetailsActivity extends AppCompatActivity  {
 
     Movie movie;
 
-    TextView tvTitle;
+
     TextView tvOverview;
     RatingBar rbVoteAverage;
     ImageView ivBackground;
@@ -36,7 +38,6 @@ public class MovieDetailsActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_details);
-        tvTitle = (TextView) findViewById(R.id.tvTitle);
         tvOverview = (TextView) findViewById(R.id.tvOverview);
         rbVoteAverage = (RatingBar) findViewById(R.id.rbVoteAverage);
         ivBackground = (ImageView) findViewById(R.id.ivBackground);
@@ -44,7 +45,7 @@ public class MovieDetailsActivity extends AppCompatActivity  {
         movie = (Movie) Parcels.unwrap(getIntent().getParcelableExtra(Movie.class.getSimpleName()));
         Log.d("MovieDetailsActivity", String.format("Showing details for '%s'", movie.getTitle()));
 
-        tvTitle.setText(movie.getTitle());
+        setTitle(movie.getTitle());
         tvOverview.setText(movie.getOverview());
         float voteAverage = movie.getVoteAverage().floatValue();
         rbVoteAverage.setRating(voteAverage = voteAverage > 0 ? voteAverage / 2.0f : voteAverage);
