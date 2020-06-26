@@ -12,15 +12,19 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
         android:layout_marginStart="0dp"
         android:layout_marginTop="0dp"
+        android:textAlignment="center"
+        android:textAllCaps="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="30sp"
         tools:layout_editor_absoluteX="153dp"
         tools:layout_editor_absoluteY="287dp" />
 
     <RatingBar
         android:id="@+id/rbVoteAverage"
-        style="@style/Widget.AppCompat.RatingBar.Small"
+        style="@android:style/Widget.DeviceDefault.Light.RatingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ivBackground"
@@ -36,7 +40,8 @@
         android:layout_below="@+id/rbVoteAverage"
         android:layout_alignParentStart="true"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp" />
+        android:layout_marginTop="0dp"
+        android:textSize="18sp" />
 
     <ImageView
         android:id="@+id/ivBackground"

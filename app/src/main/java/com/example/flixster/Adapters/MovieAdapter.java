@@ -85,7 +85,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
                         .load(imageUrl)
                         .fitCenter()
                         .transform(new RoundedCornersTransformation(30,10))
-                        .placeholder(R.drawable.icon)
+                        .placeholder(R.drawable.flicks_backdrop_placeholder)
                         .error(R.drawable.icon)
                         .into(ivPoster);
             } else {
@@ -94,7 +94,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
                         .with(context)
                         .load(imageUrl)
                         .transform(new RoundedCornersTransformation(30,10))
-                        .placeholder(R.drawable.icon)
+                        .placeholder(R.drawable.flicks_movie_placeholder)
                         .error(R.drawable.icon)
                         .override(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
                         .into(ivPoster);

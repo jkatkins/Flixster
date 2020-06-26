@@ -53,7 +53,7 @@ public class MovieDetailsActivity extends AppCompatActivity  {
                 .load(movie.getBackdropPath())
                 .fitCenter()
                 .transform(new RoundedCornersTransformation(30,10))
-                .placeholder(R.drawable.icon)
+                .placeholder(R.drawable.flicks_backdrop_placeholder)
                 .error(R.drawable.icon)
                 .into(ivBackground);
     }
