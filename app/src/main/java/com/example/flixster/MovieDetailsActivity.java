@@ -29,7 +29,7 @@ public class MovieDetailsActivity extends AppCompatActivity  {
 
     Movie movie;
 
-
+    TextView tvReleaseDate;
     TextView tvOverview;
     RatingBar rbVoteAverage;
     ImageView ivBackground;
@@ -39,6 +39,7 @@ public class MovieDetailsActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_details);
         tvOverview = (TextView) findViewById(R.id.tvOverview);
+        tvReleaseDate = (TextView) findViewById(R.id.tvReleaseDate);
         rbVoteAverage = (RatingBar) findViewById(R.id.rbVoteAverage);
         ivBackground = (ImageView) findViewById(R.id.ivBackground);
 
@@ -47,6 +48,7 @@ public class MovieDetailsActivity extends AppCompatActivity  {
 
         setTitle(movie.getTitle());
         tvOverview.setText(movie.getOverview());
+        tvReleaseDate.setText("Release Date: " + movie.getReleaseDate());
         float voteAverage = movie.getVoteAverage().floatValue();
         rbVoteAverage.setRating(voteAverage = voteAverage > 0 ? voteAverage / 2.0f : voteAverage);
         Glide

@@ -37,4 +37,13 @@
         android:onClick="onClick"
         tools:srcCompat="@tools:sample/avatars" />
 
+    <TextView
+        android:id="@+id/tvReleaseDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvOverview"
+        android:layout_marginTop="30dp"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
 </RelativeLayout>

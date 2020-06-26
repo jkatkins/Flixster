@@ -27,8 +27,13 @@ public class Movie {
     String overview;
     Double voteAverage;
     String videoUrl;
+    String releaseDate;
 
     public Movie() {}
+
+    public String getReleaseDate() {
+        return releaseDate;
+    }
 
     public Movie(JSONObject jsonObject, int index) throws JSONException {
         backdropPath = jsonObject.getString("backdrop_path");
@@ -40,6 +45,7 @@ public class Movie {
         color = (index % 2 == 0) ? darkGray : lightGray;
         voteAverage = jsonObject.getDouble("vote_average");
         id = jsonObject.getInt("id");
+        releaseDate = jsonObject.getString("release_date");
         getUrl(id);
     }
 
