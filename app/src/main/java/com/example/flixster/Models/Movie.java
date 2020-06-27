@@ -28,11 +28,16 @@ public class Movie {
     Double voteAverage;
     String videoUrl;
     String releaseDate;
+    String popularity;
 
     public Movie() {}
 
     public String getReleaseDate() {
         return releaseDate;
+    }
+
+    public String getPopularity() {
+        return popularity;
     }
 
     public Movie(JSONObject jsonObject, int index) throws JSONException {
@@ -46,6 +51,7 @@ public class Movie {
         voteAverage = jsonObject.getDouble("vote_average");
         id = jsonObject.getInt("id");
         releaseDate = jsonObject.getString("release_date");
+        popularity = jsonObject.getString("popularity");
         getUrl(id);
     }
 

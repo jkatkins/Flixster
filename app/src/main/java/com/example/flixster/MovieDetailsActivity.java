@@ -33,6 +33,7 @@ public class MovieDetailsActivity extends AppCompatActivity  {
     TextView tvOverview;
     RatingBar rbVoteAverage;
     ImageView ivBackground;
+    TextView tvPopularity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,7 @@ public class MovieDetailsActivity extends AppCompatActivity  {
         setContentView(R.layout.activity_movie_details);
         tvOverview = (TextView) findViewById(R.id.tvOverview);
         tvReleaseDate = (TextView) findViewById(R.id.tvReleaseDate);
+        tvPopularity = (TextView) findViewById(R.id.tvPopularity);
         rbVoteAverage = (RatingBar) findViewById(R.id.rbVoteAverage);
         ivBackground = (ImageView) findViewById(R.id.ivBackground);
 
@@ -49,6 +51,7 @@ public class MovieDetailsActivity extends AppCompatActivity  {
         setTitle(movie.getTitle());
         tvOverview.setText(movie.getOverview());
         tvReleaseDate.setText("Release Date: " + movie.getReleaseDate());
+        tvPopularity.setText("Popularity: " + movie.getPopularity());
         float voteAverage = movie.getVoteAverage().floatValue();
         rbVoteAverage.setRating(voteAverage = voteAverage > 0 ? voteAverage / 2.0f : voteAverage);
         Glide
